@@ -7,8 +7,15 @@ module.exports = (grunt) ->
         files:
           'app.js': 'app.coffee'
 
+    coffeelint:
+      src: ['app.coffee']
+      options:
+        configFile: '.coffeelintrc'
+
   grunt.initConfig config
 
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-coffeelint');
 
   grunt.registerTask('compile', ['coffee:compile'])
+  grunt.registerTask('lint', ['coffeelint'])
