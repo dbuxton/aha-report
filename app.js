@@ -24,7 +24,7 @@
       return new AhaApi({
         accountDomain: "arachnys",
         clientId: '10218890e8290548ea28cc16d4bbb4e705bcf4f45a4a6cb8632d31cd27b51c78',
-        redirectUri: "https://dbuxton.github.io/aha-report"
+        redirectUri: "https://dbuxton.github.io/aha-report/"
       }).authenticate(function(api, success, message) {
         var productKey;
         productKey = "APP";
