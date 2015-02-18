@@ -51,7 +51,7 @@
           <h3>Done</h3>
           <ul id="done-features">
             {{#each doneFeatures}}
-            <li><a href="{{ url }}">{{ name }}</a></li>
+            <li><a target="_blank" href="{{ url }}">{{ name }}</a></li>
             {{/each}}
           </ul>
         </div>
@@ -59,7 +59,9 @@
           <h3>Not done</h3>
           <ul id="not-done-features">
             {{#each notDoneFeatures}}
-            <li><a href="{{ url }}">{{ name }}</a></li>
+            <li><a target="_blank" href="{{ url }}">{{ name }}</a></li>
+            {{else}}
+            <li>No completed features in last week</li>
             {{/each}}
           </ul>
         </div>
