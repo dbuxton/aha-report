@@ -19,3 +19,4 @@ module.exports = (grunt) ->
 
   grunt.registerTask('compile', ['coffee:compile'])
   grunt.registerTask('lint', ['coffeelint'])
+  grunt.registerTask('test', ['lint'])
