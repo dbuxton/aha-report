@@ -1,9 +1,10 @@
-context =
+context = {
   authenticated: false
   loading: false
   doneFeatures: []
   notDoneFeatures: []
   users: []
+}
 
 $ ->
   source = $('#template').html()
@@ -15,10 +16,11 @@ $ ->
   $('#load-aha').click () ->
     context.loading = true
     $('#template').html(template(context))
-    new AhaApi
+    new AhaApi {
       accountDomain: "arachnys"
       clientId: '10218890e8290548ea28cc16d4bbb4e705bcf4f45a4a6cb8632d31cd27b51c78'
       redirectUri: "https://dbuxton.github.io/aha-report/"
+    }
 
     .authenticate (api, success, message) ->
       productKey = "APP"
@@ -30,10 +32,10 @@ $ ->
         $('#user-template').html(userTemplate(context))
         context.loading = false
         api.get "/products/APP/features"
-        ,
+        , {
           per_page: 300
           updated_since: Date.today().previous().saturday()
-        , (response) ->
+        }, (response) ->
           featuresHash = {}
           $('#template').html(template(context))
           for feature in response.features
@@ -49,7 +51,8 @@ $ ->
             notDoneFeatures = []
             if userFeatures
               for feature in userFeatures
-                if feature.workflow_status.name == "Complete" or feature.workflow_status.name == "On production"
+                if feature.workflow_status.name == "Complete" or
+                   feature.workflow_status.name == "On production"
                   doneFeatures.push feature
                 else
                   notDoneFeatures.push feature
