@@ -7,6 +7,10 @@ context = {
 }
 
 $ ->
+  if window.location.href.indexOf('localtunnel') != -1
+    redirectUri = 'https://lmlqqbztpm.localtunnel.me/'
+  else
+    redirectUri = 'https://dbuxton.github.io/aha-report/'
   source = $('#template').html()
   template = Handlebars.compile(source)
   $('#template').html(template(context))
@@ -19,7 +23,7 @@ $ ->
     new AhaApi {
       accountDomain: $('#subdomain').val()
       clientId: '10218890e8290548ea28cc16d4bbb4e705bcf4f45a4a6cb8632d31cd27b51c78'
-      redirectUri: "https://dbuxton.github.io/aha-report/"
+      redirectUri: redirectUri
     }
 
     .authenticate (api, success, message) ->

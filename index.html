@@ -52,7 +52,18 @@
           <h3>Done</h3>
           <ul id="done-features">
             {{#each doneFeatures}}
-            <li><a target="_blank" href="{{ url }}">{{ name }}</a></li>
+            <li>
+              <a target="_blank" href="{{ url }}">
+                {{ name }}
+              </a>
+              <ul>
+              {{#each requirements}}
+              <li class="">{{ workflow_status.name }}: {{ name }}</li>
+              {{/each}}
+              </ul>
+            </li>
+            {{else}}
+            <li>No completed features in last week</li>
             {{/each}}
           </ul>
         </div>
@@ -60,9 +71,18 @@
           <h3>Not done</h3>
           <ul id="not-done-features">
             {{#each notDoneFeatures}}
-            <li><a target="_blank" href="{{ url }}">{{ name }}</a></li>
+            <li>
+              <a target="_blank" href="{{ url }}">
+                {{ name }}
+              </a>
+              <ul>
+              {{#each requirements}}
+              <li class="">{{ workflow_status.name }}: {{ name }}</li>
+              {{/each}}
+              </ul>
+            </li>
             {{else}}
-            <li>No completed features in last week</li>
+            <li>No incomplete features in last week</li>
             {{/each}}
           </ul>
         </div>
