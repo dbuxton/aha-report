@@ -1,3 +1,3 @@
-coffee: coffee -wc .
-server: sleep 1 && python -m SimpleHTTPServer
-lt: lt --port 8000 --subdomain lmlqqbztpm
+coffee: cjsx -wc .
+server: http-server -p 8000
+lt: sleep 1 && lt --port 8000 --subdomain lmlqqbztpm
