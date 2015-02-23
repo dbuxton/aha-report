@@ -36,7 +36,9 @@
       }
       return React.createElement("div", {
         "className": "row"
-      }, React.createElement("h3", null, "Aha report"), React.createElement(AuthenticateControl, {
+      }, React.createElement("div", {
+        "className": "col-xs-12"
+      }, React.createElement("h3", null, "Aha report")), React.createElement(AuthenticateControl, {
         "subdomain": this.state.subdomain,
         "onAuthenticate": this.handleAuthenticated,
         "authenticated": this.state.authenticated,

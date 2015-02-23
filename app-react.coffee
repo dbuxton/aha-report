@@ -25,9 +25,11 @@ AhaReport = React.createClass {
         users={@state.users}
         onUserSelect={@handleUserSelect}
       />
-    return ( 
+    return (
       <div className="row">
-        <h3>Aha report</h3>
+        <div className="col-xs-12">
+          <h3>Aha report</h3>
+        </div>
         <AuthenticateControl
           subdomain={@state.subdomain}
           onAuthenticate={@handleAuthenticated}
@@ -126,7 +128,7 @@ AuthenticateControl = React.createClass {
       accountDomain: @state.text
       clientId: '10218890e8290548ea28cc16d4bbb4e705bcf4f45a4a6cb8632d31cd27b51c78'
       redirectUri: redirectUri
-    }    
+    }
     .authenticate (api, success, message) =>
       @props.onAuthenticate(api)
 
