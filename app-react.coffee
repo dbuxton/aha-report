@@ -137,13 +137,15 @@ AuthenticateControl = React.createClass {
       return <div></div>
     else
       return (
-        <div className="form">
-          <div className="form-group">
-            <label for="subdomain" className="">Aha subdomain</label>
-            <input name="subdomain" className="form-control" onChange={@handleChange} defaultValue={@state.text} ref="subdomainInput" />
-          </div>
-          <div className="form-group">
-            <a onClick={@handleSubmit} className="btn btn-primary">Authenticate</a>
+        <div className="col-xs-12">
+          <div className="form">
+            <div className="form-group">
+              <label for="subdomain" className="">Aha subdomain</label>
+              <input name="subdomain" className="form-control" onChange={@handleChange} defaultValue={@state.text} ref="subdomainInput" />
+            </div>
+            <div className="form-group">
+              <a onClick={@handleSubmit} className="btn btn-primary">Authenticate</a>
+            </div>
           </div>
         </div>
       )
@@ -182,10 +184,10 @@ FeatureCard = React.createClass {
         cls = "list-group-item list-group-item-success"
       else
         cls = "list-group-item"
-      return <li className={cls}>{r.name}</li>
+      return <li className={cls}><a href={r.url} target="_blank"><strong>{r.workflow_status.name}</strong>: {r.name}</a></li>
     return (
       <div className={cardCls}>
-        <div className="panel-heading"><h3 className="panel-title">{@props.card.name}</h3></div>
+        <div className="panel-heading"><h3 className="panel-title"><a href={@props.card.url} target="_blank">{@props.card.name}</a></h3></div>
         <ul className="list-group">
           {@props.card.requirements.map(renderRequirement)}
         </ul>

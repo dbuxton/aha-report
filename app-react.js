@@ -165,6 +165,8 @@
         return React.createElement("div", null);
       } else {
         return React.createElement("div", {
+          "className": "col-xs-12"
+        }, React.createElement("div", {
           "className": "form"
         }, React.createElement("div", {
           "className": "form-group"
@@ -182,7 +184,7 @@
         }, React.createElement("a", {
           "onClick": this.handleSubmit,
           "className": "btn btn-primary"
-        }, "Authenticate")));
+        }, "Authenticate"))));
       }
     }
   });
@@ -229,7 +231,10 @@
         }
         return React.createElement("li", {
           "className": cls
-        }, r.name);
+        }, React.createElement("a", {
+          "href": r.url,
+          "target": "_blank"
+        }, React.createElement("strong", null, r.workflow_status.name), ": ", r.name));
       };
       return React.createElement("div", {
         "className": cardCls
@@ -237,7 +242,10 @@
         "className": "panel-heading"
       }, React.createElement("h3", {
         "className": "panel-title"
-      }, this.props.card.name)), React.createElement("ul", {
+      }, React.createElement("a", {
+        "href": this.props.card.url,
+        "target": "_blank"
+      }, this.props.card.name))), React.createElement("ul", {
         "className": "list-group"
       }, this.props.card.requirements.map(renderRequirement)));
     }
