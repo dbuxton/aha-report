@@ -229,12 +229,12 @@
         } else {
           cls = "list-group-item";
         }
-        return React.createElement("li", {
-          "className": cls
-        }, React.createElement("a", {
+        return React.createElement("a", {
           "href": r.url,
           "target": "_blank"
-        }, React.createElement("strong", null, r.workflow_status.name), ": ", r.name));
+        }, React.createElement("li", {
+          "className": cls
+        }, React.createElement("strong", null, r.workflow_status.name), " | ", r.reference_num, " | ", r.name));
       };
       return React.createElement("div", {
         "className": cardCls
@@ -245,7 +245,7 @@
       }, React.createElement("a", {
         "href": this.props.card.url,
         "target": "_blank"
-      }, this.props.card.name))), React.createElement("ul", {
+      }, this.props.card.reference_num, " | ", this.props.card.name))), React.createElement("ul", {
         "className": "list-group"
       }, this.props.card.requirements.map(renderRequirement)));
     }

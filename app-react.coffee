@@ -184,10 +184,10 @@ FeatureCard = React.createClass {
         cls = "list-group-item list-group-item-success"
       else
         cls = "list-group-item"
-      return <li className={cls}><a href={r.url} target="_blank"><strong>{r.workflow_status.name}</strong>: {r.name}</a></li>
+      return <a href={r.url} target="_blank"><li className={cls}><strong>{r.workflow_status.name}</strong> | {r.reference_num} | {r.name}</li></a>
     return (
       <div className={cardCls}>
-        <div className="panel-heading"><h3 className="panel-title"><a href={@props.card.url} target="_blank">{@props.card.name}</a></h3></div>
+        <div className="panel-heading"><h3 className="panel-title"><a href={@props.card.url} target="_blank">{@props.card.reference_num} | {@props.card.name}</a></h3></div>
         <ul className="list-group">
           {@props.card.requirements.map(renderRequirement)}
         </ul>
