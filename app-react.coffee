@@ -182,6 +182,8 @@ FeatureCard = React.createClass {
     renderRequirement = (r) ->
       if r.workflow_status.name == "Complete" or r.workflow_status.name == "On production"
         cls = "list-group-item list-group-item-success"
+      else if r.workflow_status.name == "Rejected"
+        cls = "list-group-item list-group-item-danger"
       else
         cls = "list-group-item"
       return <a href={r.url} target="_blank"><li className={cls}><strong>{r.workflow_status.name}</strong> | {r.reference_num} | {r.name}</li></a>
