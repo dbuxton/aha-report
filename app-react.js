@@ -226,6 +226,8 @@
         var cls;
         if (r.workflow_status.name === "Complete" || r.workflow_status.name === "On production") {
           cls = "list-group-item list-group-item-success";
+        } else if (r.workflow_status.name === "Rejected") {
+          cls = "list-group-item list-group-item-danger";
         } else {
           cls = "list-group-item";
         }
