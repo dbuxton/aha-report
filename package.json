@@ -17,6 +17,7 @@
     "localtunnel": ""
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "dev": "foreman start"
   }
 }
